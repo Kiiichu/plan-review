@@ -7,9 +7,9 @@
 
 ## Suggested tweaks (applied in this plan)
 1. **Window chrome**: add a thin fake Windows title bar (app name + minimise/maximise/close glyphs) so it reads as a desktop app in the browser, not a website.
-2. **Avatar**: a simple abstract emblem (soft crescent/"D" monogram in lavender), built in code so it scales and is easy to recreate in Flutter.
+2. **Avatar**: one shared avatar slot used everywhere (sidebar, header, bubbles, welcome screen). It shows a simple lavender "D" placeholder until you upload your image, then I swap in your image in that one place.
 3. **"Thinking" indicator**: show a typing-dots bubble only while the mock reply is pending — matches your "no fake activity" rule.
-4. **Session list**: start a new entry in the sidebar when "New Chat" is used, labelled "This session" so nothing implies it survives a restart.
+4. **Saved chat list**: past chats stay in the sidebar after closing and reopening the app (saved in this browser for the prototype). Each chat gets its own link, a title from its first message, and options to rename and delete. The saved-chat format is kept simple so a memory feature can use it later.
 5. **Connection status**: show "Offline (prototype)" rather than a green dot, so it never pretends a model is running.
 6. **Flutter handoff**: keep all colours, spacing and radii as named tokens, so they map 1:1 to a Flutter theme later.
 7. **Small risk**: "phone-inspired" plus a 240px sidebar can drift toward Slack/Discord. Keep the chat column capped (~720px) with bubble styling closer to iMessage/WhatsApp.
@@ -28,7 +28,10 @@
 - Fonts: a friendly rounded sans for UI (e.g. Figtree or Manrope), no Inter.
 
 ## Technical details
-- React + TypeScript + Tailwind, local state only, no Lovable Cloud.
+- React + TypeScript + Tailwind, no Lovable Cloud.
+- Chat list (threads) saved in localStorage as `{ id, title, createdAt, updatedAt, messages: [{ id, role, content, createdAt }] }`. The storage sits behind a small `chatStore` interface so it can later be swapped for Flutter/SQLite or a memory service.
+- Routes: `/` shows the welcome screen; the first message creates a thread and navigates to `/chat/$threadId`. Reloading restores that thread. Startup avoids creating duplicate blank threads.
+- Avatar: `DarlynAvatar` component with an optional image source and a monogram fallback.
 - Components: `TitleBar`, `Sidebar`, `ChatHeader`, `MessageList`, `MessageBubble`, `TypingIndicator`, `Composer`, `EmptyState`, `SettingsDialog`, `DarlynMark`.
 - Theme tokens in `src/styles.css` (oklch), `.dark` class toggled on `<html>`; System follows `prefers-color-scheme`.
 - Mock reply generator picks from a small set of warm canned responses.
