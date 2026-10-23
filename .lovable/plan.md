@@ -36,3 +36,13 @@
 - Theme tokens in `src/styles.css` (oklch), `.dark` class toggled on `<html>`; System follows `prefers-color-scheme`.
 - Mock reply generator picks from a small set of warm canned responses.
 - Route head metadata updated for Darlyn.
+
+## Flutter conversion manual (written after the build)
+A `FLUTTER_CONVERSION.md` guide in the project root, covering:
+- A map from each React component to a Flutter widget (e.g. Sidebar to `NavigationRail`/`Drawer`, MessageList to `ListView.builder` with `reverse: true`, Composer to a multiline `TextField` with Enter/Shift+Enter handling through `Shortcuts`/`Focus`).
+- Design tokens converted to `ThemeData`/`ColorScheme` (oklch values given as hex) for dark and light themes, plus spacing and radius constants.
+- State: React state and `chatStore` mapped to Riverpod/Provider, and saved chats in localStorage mapped to SQLite (`drift`/`sqflite`) or Hive, using the same thread/message data format. Notes on a future memory feature.
+- Routing: `/chat/$threadId` mapped to `go_router`.
+- Desktop window: `window_manager` and `bitsdojo_window` for the custom title bar, minimum window size and auto-collapsing sidebar.
+- Ollama: swapping the mock reply generator for streaming calls to `http://localhost:11434/api/chat`, a connection check for the status indicator, and model listing via `/api/tags` for Settings.
+- Avatar image as a Flutter asset, a suggested folder structure and a step-by-step conversion checklist.
