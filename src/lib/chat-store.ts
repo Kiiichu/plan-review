@@ -97,7 +97,7 @@ export const chatStore = {
       append(threadId, {
         id: uid(),
         role: "darlyn",
-        content: REPLIES[Math.floor(Math.random() * REPLIES.length)],
+        content: REPLIES[Math.floor(Math.random() * REPLIES.length)] ?? REPLIES[0]!,
         createdAt: Date.now(),
       });
       pending.delete(threadId);
