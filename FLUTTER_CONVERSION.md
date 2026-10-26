@@ -60,7 +60,7 @@ Packages (`pubspec.yaml`): `flutter_riverpod`, `go_router`, `window_manager`, `b
 | Composer focus | Subtle: border at ~50% accent plus a faint 4px accent glow (`BoxShadow`, ~10% opacity) — no hard outline |
 | Mock replies | Each welcome starter gets its own opening reply (`STARTER_REPLIES` in chat-store); otherwise random, never repeating Darlyn's previous reply back-to-back |
 | `SettingsDialog` | `showDialog` + `SegmentedButton` for Theme and Spacing |
-| `DarlynAvatar` | `CircleAvatar(backgroundImage: AssetImage("assets/avatar.jpg"))` (prototype uses the uploaded ARIA.jpg, center-cropped)` with a monogram fallback (`CustomPaint`) |
+| `DarlynAvatar` | `CircleAvatar(backgroundImage: AssetImage("assets/avatar.jpg"))` (prototype uses the uploaded ARIA.jpg, center-cropped) with a monogram fallback (`CustomPaint`) |
 
 ---
 
