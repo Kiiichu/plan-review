@@ -1,10 +1,11 @@
 import { cn } from "@/lib/utils";
+import avatarAsset from "@/assets/darlyn-avatar.jpg.asset.json";
 
 /**
- * Single avatar slot used everywhere. To use a custom image, set AVATAR_SRC
- * to an imported image URL. Falls back to the lavender monogram.
+ * Single avatar slot used everywhere. Swap the image here only.
+ * Falls back to the lavender monogram if AVATAR_SRC is unset.
  */
-const AVATAR_SRC: string | undefined = undefined;
+const AVATAR_SRC: string | undefined = avatarAsset.url;
 
 export function DarlynAvatar({ size = 36, className }: { size?: number; className?: string }) {
   return (
