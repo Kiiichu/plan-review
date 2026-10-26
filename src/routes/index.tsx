@@ -18,7 +18,11 @@ export const Route = createFileRoute("/")({
   component: Welcome,
 });
 
-const SUGGESTIONS = ["Let's just chat", "I need to think something through", "Tell me something interesting"];
+const SUGGESTIONS = [
+  "Keep me company for a bit.",
+  "There's something on my mind.",
+  "Surprise me with something interesting.",
+];
 
 function Welcome() {
   const navigate = useNavigate();
@@ -31,21 +35,24 @@ function Welcome() {
   return (
     <>
       <ChatHeader />
-      <div className="flex min-h-0 flex-1 flex-col items-center justify-center overflow-y-auto px-6 py-8 text-center">
-        <DarlynAvatar size={72} />
-        <h1 className="mt-6 text-3xl font-semibold tracking-tight">Hey, I'm Darlyn.</h1>
-        <p className="mt-2 text-[15px] text-muted-foreground">A little company for your everyday moments.</p>
-        <p className="mt-8 text-sm text-muted-foreground">What's on your mind?</p>
-        <div className="mt-3 flex max-w-xl flex-wrap justify-center gap-2">
-          {SUGGESTIONS.map((s) => (
-            <button
-              key={s}
-              onClick={() => start(s)}
-              className="rounded-full border border-border bg-card px-4 py-2 text-sm transition-colors hover:border-ring hover:bg-accent"
-            >
-              {s}
-            </button>
-          ))}
+      {/* my-auto (not justify-center) so short windows scroll instead of clipping the top */}
+      <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-6 py-8">
+        <div className="my-auto flex flex-col items-center text-center">
+          <DarlynAvatar size={72} />
+          <h1 className="mt-6 text-3xl font-semibold tracking-tight">Hey, I'm Darlyn.</h1>
+          <p className="mt-2 text-[15px] text-muted-foreground">A little company for your everyday moments.</p>
+          <p className="mt-8 text-sm text-muted-foreground">What's on your mind?</p>
+          <div className="mt-3 flex max-w-xl flex-wrap justify-center gap-2">
+            {SUGGESTIONS.map((s) => (
+              <button
+                key={s}
+                onClick={() => start(s)}
+                className="rounded-full border border-border bg-card px-4 py-2 text-sm transition-colors hover:border-ring/60 hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+              >
+                {s}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
       <Composer onSend={start} value={text} onValueChange={setText} />

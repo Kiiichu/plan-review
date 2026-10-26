@@ -89,12 +89,12 @@ export function SettingsDialog({
               ]}
             />
           </Row>
-          <Row label="Model" hint="Will show your local model">
+          <Row label="Model" hint="Prototype placeholder — no model connected">
             <span className="rounded-md bg-muted px-2.5 py-1 font-mono text-xs text-muted-foreground">
               Not configured
             </span>
           </Row>
-          <Row label="Local AI service" hint="Responses are simulated">
+          <Row label="Local AI service" hint="Prototype placeholder — replies are simulated">
             <span className="flex items-center gap-2 text-sm text-muted-foreground">
               <span className="h-2 w-2 rounded-full bg-muted-foreground/50" />
               Offline (prototype)

@@ -132,7 +132,7 @@ export function Composer({
 
   return (
     <div className="shrink-0 px-5 pb-5 pt-2">
-      <div className="mx-auto flex max-w-[720px] items-end gap-2 rounded-3xl border border-input bg-card p-2 pl-4 shadow-sm transition-colors focus-within:border-ring">
+      <div className="mx-auto flex max-w-[720px] items-end gap-2 rounded-3xl border border-input bg-card p-2 pl-4 shadow-sm transition-[border-color,box-shadow] focus-within:border-ring/50 focus-within:ring-4 focus-within:ring-ring/10">
         <textarea
           ref={ref}
           rows={1}

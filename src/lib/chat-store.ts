@@ -94,10 +94,12 @@ export const chatStore = {
     emit();
     // Mock reply — replace with Ollama streaming in production.
     setTimeout(() => {
+      const last = chatStore.get(threadId)?.messages.filter((m) => m.role === "darlyn").at(-1)?.content;
+      const options = REPLIES.filter((r) => r !== last);
       append(threadId, {
         id: uid(),
         role: "darlyn",
-        content: REPLIES[Math.floor(Math.random() * REPLIES.length)] ?? REPLIES[0]!,
+        content: options[Math.floor(Math.random() * options.length)] ?? REPLIES[0]!,
         createdAt: Date.now(),
       });
       pending.delete(threadId);
