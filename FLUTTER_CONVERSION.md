@@ -58,7 +58,7 @@ Packages (`pubspec.yaml`): `flutter_riverpod`, `go_router`, `window_manager`, `b
 | Enter / Shift+Enter | Wrap in `Focus(onKeyEvent:)`: if `LogicalKeyboardKey.enter` and not `HardwareKeyboard.instance.isShiftPressed` then send and return `KeyEventResult.handled` |
 | Welcome screen + chips | `SingleChildScrollView` + `ConstrainedBox(minHeight: viewport)` + centered `Column` (so short windows scroll instead of clipping); chips = `ActionChip` / `OutlinedButton` with `StadiumBorder`. Starters: "Keep me company for a bit.", "There's something on my mind.", "Surprise me with something interesting." |
 | Composer focus | Subtle: border at ~50% accent plus a faint 4px accent glow (`BoxShadow`, ~10% opacity) — no hard outline |
-| Mock replies | Never repeat Darlyn's previous reply back-to-back |
+| Mock replies | Each welcome starter gets its own opening reply (`STARTER_REPLIES` in chat-store); otherwise random, never repeating Darlyn's previous reply back-to-back |
 | `SettingsDialog` | `showDialog` + `SegmentedButton` for Theme and Spacing |
 | `DarlynAvatar` | `CircleAvatar(backgroundImage: AssetImage('assets/avatar.png'))` with a monogram fallback (`CustomPaint`) |
 
