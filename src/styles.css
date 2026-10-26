@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Darlyn design tokens. All colors oklch. Mirror these in Flutter ThemeData
- * (see FLUTTER_CONVERSION.md).
+ * Darlyn design tokens ("city at dusk" palette). Hex values map 1:1 to
+ * Flutter ThemeData (see FLUTTER_CONVERSION.md).
  */
 
 @theme inline {
@@ -40,6 +40,8 @@
   --color-ring-offset-background: var(--background);
   --color-titlebar: var(--titlebar);
   --color-panel: var(--panel);
+  --color-gold: var(--gold);
+  --color-lavender: var(--lavender);
   --color-bubble-user: var(--bubble-user);
   --color-bubble-user-foreground: var(--bubble-user-foreground);
   --color-bubble-darlyn: var(--bubble-darlyn);
@@ -59,89 +61,95 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* Light: warm paper */
+/* Light: warm ivory dusk (counterpart to the dark theme) */
 :root {
   --radius: 0.875rem;
-  --background: oklch(0.975 0.008 80);
-  --foreground: oklch(0.24 0.02 320);
-  --card: oklch(0.99 0.005 80);
-  --card-foreground: oklch(0.24 0.02 320);
-  --popover: oklch(0.99 0.005 80);
-  --popover-foreground: oklch(0.24 0.02 320);
-  --primary: oklch(0.58 0.11 300);
-  --primary-foreground: oklch(0.98 0.01 300);
-  --secondary: oklch(0.93 0.015 310);
-  --secondary-foreground: oklch(0.3 0.03 310);
-  --muted: oklch(0.94 0.01 80);
-  --muted-foreground: oklch(0.5 0.02 320);
-  --accent: oklch(0.92 0.025 305);
-  --accent-foreground: oklch(0.3 0.05 305);
-  --destructive: oklch(0.577 0.2 27);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.89 0.012 310);
-  --input: oklch(0.89 0.012 310);
-  --ring: oklch(0.65 0.1 300);
-  --titlebar: oklch(0.95 0.01 80);
-  --panel: oklch(0.955 0.01 80);
-  --bubble-user: oklch(0.58 0.11 300);
-  --bubble-user-foreground: oklch(0.985 0.01 300);
-  --bubble-darlyn: oklch(0.99 0.005 80);
-  --bubble-darlyn-foreground: oklch(0.24 0.02 320);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.955 0.01 80);
-  --sidebar-foreground: oklch(0.24 0.02 320);
-  --sidebar-primary: oklch(0.58 0.11 300);
-  --sidebar-primary-foreground: oklch(0.98 0.01 300);
-  --sidebar-accent: oklch(0.92 0.02 305);
-  --sidebar-accent-foreground: oklch(0.3 0.05 305);
-  --sidebar-border: oklch(0.89 0.012 310);
-  --sidebar-ring: oklch(0.65 0.1 300);
+  --background: #f4f1ea;
+  --foreground: #1b202b;
+  --card: #fbf9f5;
+  --card-foreground: #1b202b;
+  --popover: #fbf9f5;
+  --popover-foreground: #1b202b;
+  --primary: #3f6a99;
+  --primary-foreground: #f7f5f0;
+  --secondary: #e6e8ec;
+  --secondary-foreground: #252c39;
+  --muted: #ebe8e1;
+  --muted-foreground: #5b6576;
+  --accent: #e3e8ef;
+  --accent-foreground: #1b202b;
+  --destructive: #b8473b;
+  --destructive-foreground: #fbf9f5;
+  --border: #dcd8d0;
+  --input: #d3d0c8;
+  --ring: #5a82ad;
+  --titlebar: #ebe8e1;
+  --panel: #efece5;
+  --gold: #a9844a;
+  --lavender: #8a78b3;
+  --bubble-user: #3f6a99;
+  --bubble-user-foreground: #f7f5f0;
+  --bubble-darlyn: #fbf9f5;
+  --bubble-darlyn-foreground: #1b202b;
+  --dusk-glow: radial-gradient(120% 60% at 50% 0%, rgb(169 200 232 / 0.18), transparent 70%);
+  --chart-1: #3f6a99;
+  --chart-2: #7899bd;
+  --chart-3: #a9844a;
+  --chart-4: #8a78b3;
+  --chart-5: #5b6576;
+  --sidebar: #efece5;
+  --sidebar-foreground: #1b202b;
+  --sidebar-primary: #3f6a99;
+  --sidebar-primary-foreground: #f7f5f0;
+  --sidebar-accent: #e3e2dc;
+  --sidebar-accent-foreground: #1b202b;
+  --sidebar-border: #dcd8d0;
+  --sidebar-ring: #5a82ad;
 }
 
-/* Dark: charcoal + muted plum */
+/* Dark (default): midnight blue, sky blue, ivory, champagne gold */
 .dark {
-  --background: oklch(0.19 0.012 320);
-  --foreground: oklch(0.94 0.012 80);
-  --card: oklch(0.23 0.016 320);
-  --card-foreground: oklch(0.94 0.012 80);
-  --popover: oklch(0.23 0.016 320);
-  --popover-foreground: oklch(0.94 0.012 80);
-  --primary: oklch(0.78 0.09 300);
-  --primary-foreground: oklch(0.2 0.03 300);
-  --secondary: oklch(0.27 0.02 320);
-  --secondary-foreground: oklch(0.92 0.012 80);
-  --muted: oklch(0.25 0.015 320);
-  --muted-foreground: oklch(0.68 0.02 310);
-  --accent: oklch(0.3 0.035 310);
-  --accent-foreground: oklch(0.92 0.03 300);
-  --destructive: oklch(0.68 0.17 22);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.3 0.018 320);
-  --input: oklch(0.32 0.02 320);
-  --ring: oklch(0.7 0.08 300);
-  --titlebar: oklch(0.155 0.01 320);
-  --panel: oklch(0.165 0.011 320);
-  --bubble-user: oklch(0.42 0.07 305);
-  --bubble-user-foreground: oklch(0.96 0.015 300);
-  --bubble-darlyn: oklch(0.255 0.018 320);
-  --bubble-darlyn-foreground: oklch(0.93 0.012 80);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.165 0.011 320);
-  --sidebar-foreground: oklch(0.92 0.012 80);
-  --sidebar-primary: oklch(0.78 0.09 300);
-  --sidebar-primary-foreground: oklch(0.2 0.03 300);
-  --sidebar-accent: oklch(0.25 0.02 315);
-  --sidebar-accent-foreground: oklch(0.94 0.012 80);
-  --sidebar-border: oklch(0.27 0.016 320);
-  --sidebar-ring: oklch(0.7 0.08 300);
+  --background: #12151d;
+  --foreground: #f1eee8;
+  --card: #1b202b;
+  --card-foreground: #f1eee8;
+  --popover: #1b202b;
+  --popover-foreground: #f1eee8;
+  --primary: #a9c8e8;
+  --primary-foreground: #12151d;
+  --secondary: #252c39;
+  --secondary-foreground: #f1eee8;
+  --muted: #1b202b;
+  --muted-foreground: #a7b0be;
+  --accent: #252c39;
+  --accent-foreground: #f1eee8;
+  --destructive: #e07a6c;
+  --destructive-foreground: #12151d;
+  --border: #303746;
+  --input: #303746;
+  --ring: #a9c8e8;
+  --titlebar: #0b0d13;
+  --panel: #0e1118;
+  --gold: #d8be91;
+  --lavender: #b6a5d7;
+  --bubble-user: #2e4566;
+  --bubble-user-foreground: #f1eee8;
+  --bubble-darlyn: #1b202b;
+  --bubble-darlyn-foreground: #f1eee8;
+  --dusk-glow: radial-gradient(120% 55% at 50% 0%, rgb(120 153 189 / 0.10), transparent 70%);
+  --chart-1: #a9c8e8;
+  --chart-2: #7899bd;
+  --chart-3: #d8be91;
+  --chart-4: #b6a5d7;
+  --chart-5: #a7b0be;
+  --sidebar: #0e1118;
+  --sidebar-foreground: #f1eee8;
+  --sidebar-primary: #a9c8e8;
+  --sidebar-primary-foreground: #12151d;
+  --sidebar-accent: #1b202b;
+  --sidebar-accent-foreground: #f1eee8;
+  --sidebar-border: #232937;
+  --sidebar-ring: #a9c8e8;
 }
 
 @layer base {

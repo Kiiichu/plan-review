@@ -66,37 +66,40 @@ Packages (`pubspec.yaml`): `flutter_riverpod`, `go_router`, `window_manager`, `b
 
 ## 3. Design tokens (from `src/styles.css`)
 
-Approximate hex conversions of the oklch values. Verify them with an oklch converter if you need exact matches.
+The prototype now uses these exact hex values.
 
-### Dark (default)
+### Dark (default) — "city at dusk"
 | Token | Hex |
 |---|---|
-| background | `#1E1A1E` |
-| titlebar | `#161316` |
-| panel / sidebar | `#191519` |
-| card | `#272226` |
-| foreground | `#EEEAE3` |
-| muted-foreground | `#A39BA5` |
-| primary (lavender) | `#C3AEE6` |
-| primary-foreground | `#231B2E` |
-| accent | `#3A2F3E` |
-| border | `#3A3239` |
-| bubble-user | `#5A4672` |
-| bubble-user-fg | `#F2EEF8` |
-| bubble-darlyn | `#2C262B` |
-| destructive | `#E5786A` |
+| background | `#12151D` |
+| titlebar | `#0B0D13` |
+| panel / sidebar | `#0E1118` |
+| card / chat surface / Darlyn bubble | `#1B202B` |
+| elevated (composer, secondary) | `#252C39` |
+| foreground (ivory) | `#F1EEE8` |
+| muted-foreground | `#A7B0BE` |
+| primary (sky blue) / ring | `#A9C8E8` |
+| primary-foreground | `#12151D` |
+| secondary accent | `#7899BD` |
+| gold (decorative only) | `#D8BE91` |
+| lavender (typing dots only) | `#B6A5D7` |
+| border | `#303746` |
+| bubble-user | `#2E4566` (text `#F1EEE8`) |
+| destructive | `#E07A6C` |
+
+Main chat area has a faint top radial glow (`#7899BD` at 10% opacity). Gold is used only for the small diamond in the title bar and the divider on the welcome screen. Active chat in the sidebar shows a 2px sky-blue bar on its left.
 
 ### Light
 | Token | Hex |
 |---|---|
-| background | `#F8F5F0` |
-| card | `#FDFBF8` |
-| foreground | `#33282F` |
-| muted-foreground | `#776B73` |
-| primary / bubble-user | `#8C6BBF` |
-| accent | `#E9E0EE` |
-| border | `#DDD5DD` |
-| bubble-darlyn | `#FDFBF8` |
+| background | `#F4F1EA` |
+| card / bubble-darlyn | `#FBF9F5` |
+| foreground | `#1B202B` |
+| muted-foreground | `#5B6576` |
+| primary / bubble-user | `#3F6A99` |
+| gold | `#A9844A` |
+| lavender | `#8A78B3` |
+| border | `#DCD8D0` |
 
 ### Shape and spacing
 - Base radius 14px; bubbles 24px (tail corner 6px); composer 24px; chips fully rounded.
@@ -107,10 +110,11 @@ Approximate hex conversions of the oklch values. Verify them with an oklch conve
 ```dart
 // theme/tokens.dart (excerpt)
 class DarlynColors {
-  static const darkBg = Color(0xFF1E1A1E);
-  static const darkPrimary = Color(0xFFC3AEE6);
-  static const darkBubbleUser = Color(0xFF5A4672);
-  static const darkBubbleDarlyn = Color(0xFF2C262B);
+  static const darkBg = Color(0xFF12151D);
+  static const darkPrimary = Color(0xFFA9C8E8);
+  static const darkGold = Color(0xFFD8BE91);
+  static const darkBubbleUser = Color(0xFF2E4566);
+  static const darkBubbleDarlyn = Color(0xFF1B202B);
 }
 // Expose bubble colors via a ThemeExtension<DarlynTheme>.
 ```

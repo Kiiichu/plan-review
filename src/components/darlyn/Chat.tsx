@@ -83,7 +83,7 @@ export function MessageList({ messages, pending }: { messages: ChatMessage[]; pe
               {[0, 1, 2].map((d) => (
                 <span
                   key={d}
-                  className="typing-dot h-1.5 w-1.5 rounded-full bg-muted-foreground"
+                  className="typing-dot h-1.5 w-1.5 rounded-full bg-lavender"
                   style={{ animationDelay: `${d * 0.15}s` }}
                 />
               ))}
@@ -132,7 +132,7 @@ export function Composer({
 
   return (
     <div className="shrink-0 px-5 pb-5 pt-2">
-      <div className="mx-auto flex max-w-[720px] items-end gap-2 rounded-3xl border border-input bg-card p-2 pl-4 shadow-sm transition-[border-color,box-shadow] focus-within:border-ring/50 focus-within:ring-4 focus-within:ring-ring/10">
+      <div className="mx-auto flex max-w-[720px] items-end gap-2 rounded-3xl border border-border/60 bg-secondary p-2 pl-4 shadow-lg shadow-background/40 transition-[border-color,box-shadow] duration-200 focus-within:border-ring/45 focus-within:ring-4 focus-within:ring-ring/10">
         <textarea
           ref={ref}
           rows={1}
@@ -151,7 +151,7 @@ export function Composer({
           onClick={submit}
           disabled={!canSend}
           aria-label="Send message"
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground transition-opacity disabled:opacity-35"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground transition-[opacity,transform,filter] duration-200 hover:brightness-110 active:scale-95 disabled:opacity-35 disabled:hover:brightness-100"
         >
           <ArrowUp className="h-4 w-4" strokeWidth={2.25} />
         </button>
