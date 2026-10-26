@@ -42,7 +42,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         <TitleBar />
         <div className="flex min-h-0 flex-1">
           <Sidebar open={sidebarOpen} />
-          <main className="flex min-h-0 min-w-0 flex-1 flex-col">{children}</main>
+          <main className="bg-dusk flex min-h-0 min-w-0 flex-1 flex-col">{children}</main>
         </div>
       </div>
       <SettingsDialog
@@ -61,6 +61,7 @@ function TitleBar() {
       <div className="flex items-center gap-2">
         <DarlynAvatar size={16} className="ring-0" />
         <span className="font-medium tracking-wide">Darlyn</span>
+        <span className="h-1 w-1 rotate-45 bg-gold/80" aria-hidden />
       </div>
       <div className="flex h-full" aria-hidden>
         {[Minus, Square, X].map((Icon, i) => (
@@ -143,8 +144,10 @@ function Sidebar({ open }: { open: boolean }) {
             <div
               key={t.id}
               className={cn(
-                "group flex items-center gap-1 rounded-lg pr-1 text-sm transition-colors",
-                active ? "bg-sidebar-accent" : "hover:bg-sidebar-accent/60",
+                "group relative flex items-center gap-1 rounded-lg pr-1 text-sm transition-colors duration-200",
+                active
+                  ? "bg-sidebar-accent before:absolute before:inset-y-2 before:left-0 before:w-0.5 before:rounded-full before:bg-primary"
+                  : "text-sidebar-foreground/85 hover:bg-sidebar-accent/60",
               )}
             >
               {editing === t.id ? (

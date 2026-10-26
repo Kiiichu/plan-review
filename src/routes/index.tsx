@@ -41,7 +41,12 @@ function Welcome() {
           <DarlynAvatar size={72} />
           <h1 className="mt-6 text-3xl font-semibold tracking-tight">Hey, I'm Darlyn.</h1>
           <p className="mt-2 text-[15px] text-muted-foreground">A little company for your everyday moments.</p>
-          <p className="mt-8 text-sm text-muted-foreground">What's on your mind?</p>
+          <div className="mt-6 flex items-center gap-2" aria-hidden>
+            <span className="h-px w-8 bg-gold/40" />
+            <span className="h-1.5 w-1.5 rotate-45 bg-gold/80" />
+            <span className="h-px w-8 bg-gold/40" />
+          </div>
+          <p className="mt-6 text-sm text-muted-foreground">What's on your mind?</p>
           <div className="mt-3 flex max-w-xl flex-wrap justify-center gap-2">
             {SUGGESTIONS.map((s) => (
               <button
